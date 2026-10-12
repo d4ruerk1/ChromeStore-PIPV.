@@ -1,0 +1,22 @@
+:root{--bg:#fff;--fg:#14141a;--mut:#62626f;--card:#f4f4f7;--line:#e4e4ea;--acc:#5b5bf0;--acc2:#a34bf2;--ok:#16a34a;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#141418;--fg:#f2f2f6;--mut:#a0a0ad;--card:#1f1f25;--line:#2c2c34;--acc:#8a8aff;--acc2:#c085ff}}
+*{box-sizing:border-box;margin:0}html{overflow-x:hidden}
+body{font:13px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--fg)}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.3px;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mut{color:var(--mut);font-size:12px}
+.card{background:var(--card);border-radius:12px;padding:4px 12px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row label{flex:1;cursor:pointer}
+.row small{display:block;color:var(--mut);font-size:11px}
+.sw{appearance:none;flex:none;width:34px;height:20px;border-radius:20px;background:var(--line);position:relative;cursor:pointer;transition:background .15s}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px #0004;transition:transform .15s}
+.sw:checked{background:var(--acc)}.sw:checked::after{transform:translateX(14px)}
+.sw:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.btn{width:100%;border:0;border-radius:10px;padding:11px;font:600 14px system-ui,sans-serif;color:#fff;background:linear-gradient(90deg,#4f4fe6,#9038e0);cursor:pointer;transition:filter .15s,transform .05s}
+.btn:hover{filter:brightness(1.08)}.btn:active{transform:scale(.98)}
+.link{background:none;border:0;padding:0;color:var(--acc);font:inherit;cursor:pointer;text-decoration:underline}
+select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:3px 6px}
+kbd{font:11px ui-monospace,monospace;background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

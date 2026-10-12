@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PIPV.</title><link rel="stylesheet" href="ui.css">
+<style>
+body{max-width:640px;margin:48px auto;padding:0 20px;display:grid;gap:18px;font-size:15px}
+h1.logo{font-size:44px}ol{display:grid;gap:12px;padding-left:22px}
+code{font:13px ui-monospace,monospace;background:var(--card);padding:2px 6px;border-radius:6px;user-select:all;word-break:break-all}
+.card{padding:16px 18px}
+.btn{width:auto;padding:10px 18px}
+</style></head>
+<body>
+<h1 class="logo">PIPV.</h1>
+<p data-i18n="welcomeIntro"></p>
+<div class="card"><ol>
+  <li><span data-i18n="step1"></span><br><button class="btn" id="open" data-i18n="openSettings" style="margin-top:8px"></button><br><code>chrome://settings/content/autoPictureInPicture</code></li>
+  <li><span data-i18n="step2"></span><br><code>chrome://flags/#auto-picture-in-picture-for-video-playback</code></li>
+  <li data-i18n="step3"></li>
+  <li data-i18n="step4"></li>
+</ol></div>
+<p class="mut" data-i18n="privacy"></p>
+<script src="welcome.js"></script>
+</body></html>

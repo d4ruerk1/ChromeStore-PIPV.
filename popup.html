@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>PIPV.</title><link rel="stylesheet" href="ui.css">
+<style>
+body{width:320px;padding:14px;display:grid;gap:12px}
+header{display:flex;align-items:center;gap:8px}header img{width:24px;height:24px}
+.st{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mut)}.on .dot{background:var(--ok)}
+#msg{text-align:center}#msg:empty{display:none}
+details summary{cursor:pointer;font-weight:600;padding:2px 0 8px;list-style:none}
+details summary::before{content:"▸ ";color:var(--mut)}details[open] summary::before{content:"▾ "}
+footer{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+</style></head>
+<body>
+<header><img src="icons/32.png" alt=""><span class="logo">PIPV.</span>
+  <span class="st" id="st" role="status"><span class="dot"></span><span id="stTxt"></span></span></header>
+
+<div class="card">
+  <div class="row"><label for="enabled"><span data-i18n="enabled"></span><small data-i18n="enabledHint"></small></label>
+    <input type="checkbox" class="sw" id="enabled" role="switch"></div>
+  <div class="row"><label for="site"><span data-i18n="thisSite"></span><small id="host">—</small></label>
+    <input type="checkbox" class="sw" id="site" role="switch"></div>
+</div>
+
+<button class="btn" id="pip" data-i18n="pipNow"></button>
+<p class="mut" id="msg" aria-live="polite"></p>
+
+<details>
+  <summary data-i18n="settings"></summary>
+  <div class="card">
+    <div class="row"><label for="autoExit"><span data-i18n="autoExit"></span><small data-i18n="autoExitHint"></small></label><input type="checkbox" class="sw" id="autoExit" role="switch"></div>
+    <div class="row"><label for="pipControls"><span data-i18n="pipControls"></span><small data-i18n="pipControlsHint"></small></label><input type="checkbox" class="sw" id="pipControls" role="switch"></div>
+    <div class="row"><label for="onBlur"><span data-i18n="onBlur"></span><small data-i18n="onBlurHint"></small></label><input type="checkbox" class="sw" id="onBlur" role="switch"></div>
+    <div class="row"><label for="skipMuted" data-i18n="skipMuted"></label><input type="checkbox" class="sw" id="skipMuted" role="switch"></div>
+    <div class="row"><label for="forceAllow"><span data-i18n="forceAllow"></span><small data-i18n="forceAllowHint"></small></label><input type="checkbox" class="sw" id="forceAllow" role="switch"></div>
+    <div class="row"><label for="minDuration" data-i18n="minDuration"></label>
+      <select id="minDuration"><option value="0" data-i18n="any"></option><option value="30">30 s</option><option value="60">1 min</option><option value="180">3 min</option></select></div>
+  </div>
+</details>
+
+<footer><button class="link" id="perm" data-i18n="browserPerm"></button><span class="mut"><span data-i18n="shortcut"></span> <kbd id="kbd">Alt+P</kbd></span></footer>
+<p class="mut" data-i18n="privacy"></p>
+<script type="module" src="popup.js"></script>
+</body></html>

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "PIPV.",
+  "short_name": "PIPV.",
+  "version": "1.0.0",
+  "description": "__MSG_extDesc__",
+  "default_locale": "en",
+  "minimum_chrome_version": "120",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_actionTitle__",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "background": { "service_worker": "sw.js", "type": "module" },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "all_frames": true,
+    "match_about_blank": true,
+    "run_at": "document_idle"
+  }],
+  "commands": {
+    "toggle-pip": {
+      "suggested_key": { "default": "Alt+P", "mac": "Alt+P" },
+      "description": "__MSG_cmdToggle__"
+    }
+  }
+}
