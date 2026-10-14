@@ -1,4 +1,4 @@
-export const DEF = { enabled: true, autoExit: true, onBlur: true, skipMuted: false, forceAllow: true, pipControls: true, minDuration: 0, excluded: [] };
+export const DEF = { enabled: true, autoExit: true, onBlur: true, skipMuted: false, forceAllow: false, pipControls: true, minDuration: 0, excluded: [] };
 
 /* Runs inside the page (extension isolated world). Must be self-contained. */
 function inject() {

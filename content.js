@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   if (window.__pipv) return;
-  const DEF = { enabled: true, autoExit: true, onBlur: true, skipMuted: false, forceAllow: true, pipControls: true, minDuration: 0, excluded: [] };
+  const DEF = { enabled: true, autoExit: true, onBlur: true, skipMuted: false, forceAllow: false, pipControls: true, minDuration: 0, excluded: [] };
   let cfg = { ...DEF }, auto = false, busy = false, ours = false, seekSet = false, blurT = 0;
   const ms = navigator.mediaSession || null;
   const isTop = window === window.top;
@@ -30,7 +30,9 @@
   };
 
   const enter = (v, isAuto) => {
-    if (cfg.forceAllow && v.disablePictureInPicture) v.disablePictureInPicture = false;
+    // Auto mode respects the site's disablePictureInPicture unless the user opted in;
+    // a manual request (icon / Alt+P) is an explicit user action and always forces it.
+    if ((cfg.forceAllow || !isAuto) && v.disablePictureInPicture) v.disablePictureInPicture = false;
     busy = true;
     return v.requestPictureInPicture().then(() => { auto = isAuto; }).finally(() => { busy = false; });
   };
